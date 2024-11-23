@@ -67,8 +67,11 @@ object Taak1 extends App:
 
 //  val flowQ1: Flow[Match, Map[String, Int]] = Flow[Match]
   val flowQ1: Flow[Match, WinCounter, NotUsed] = Flow[Match]
-    .filter((m: Match) => m.day == "Sunday")
-    .map((m: Match) => WinCounter(m.win_team.name))
+//    .filter((m: Match) => m.day == "Sunday")
+    .map((m: Match) =>
+      if m.day == "Sunday" 
+      then WinCounter(m.win_team.name, 1) 
+      else WinCounter(m.win_team.name, 0))
     .reduce(_ + _)
 
   val flowQ1Balanced: Graph[FlowShape[Match, ByteString], NotUsed] =
@@ -81,8 +84,11 @@ object Taak1 extends App:
           val merge = builder.add(Merge[WinCounter](2))
           val flowOut = builder.add(Flow[ByteString])
 
-          val sundayWinnersFilter = builder.add(Flow[Match].filter((m: Match) => m.day == "Sunday"))
-          val toCounterConverter = Flow[Match].map((m: Match) => WinCounter(m.win_team.name))
+//          val sundayWinnersFilter = builder.add(Flow[Match].filter((m: Match) => m.day == "Sunday"))
+          val toCounterConverter = Flow[Match].map((m: Match) =>
+                                                  if m.day == "Sunday"
+                                                  then WinCounter(m.win_team.name, 1)
+                                                  else WinCounter(m.win_team.name, 0))
           val counterReducer = Flow[WinCounter].reduce(_ + _)
 //          val counterReducer = Flow[WinCounter].fold(WinCounter(MutMap[String, Int]()))(_ + _).map(w => {println(w); w})
 
@@ -90,11 +96,12 @@ object Taak1 extends App:
           val counterReducer2 = Flow[WinCounter].reduce(_ + _)
 
           val toByteString = Flow[WinCounter].map(w => ByteString(w.toString))
+          val buffer = Flow[Match].buffer(20, OverflowStrategy.backpressure)
 
-//          Filter first because filtering after balancing might result in very unbalanced workloads per pipeline
-          sundayWinnersFilter ~> balance ~> toCounterConverter.async ~> counterReducer.async ~> merge ~> counterReducer2 ~> toByteString ~> flowOut
-                                 balance ~> toCounterConverter.async ~> counterReducer.async ~> merge
-          FlowShape(sundayWinnersFilter.in, flowOut.out)
+          balance ~> buffer ~> toCounterConverter.async ~> counterReducer.async ~> merge ~> counterReducer2 ~> toByteString ~> flowOut
+          balance ~> buffer ~> toCounterConverter.async ~> counterReducer.async ~> merge
+          
+          FlowShape(balance.in, flowOut.out)
       })
 
 
@@ -142,7 +149,7 @@ object Taak1 extends App:
 //  )
 
 //    val sink2 = Sink.foreach((x: ByteString) => print(x.utf8String))
-  val sink3 = Sink.foreach(println)
+  val printSink = Sink.foreach(println)
   val sinkQ1 = FileIO.toPath(Paths.get(s"$resourcesFolder/results/taak1_Q1.txt"), Set(CREATE, WRITE))
 
   val runnableGraph: RunnableGraph[Future[IOResult]] =
@@ -150,15 +157,7 @@ object Taak1 extends App:
       .via(csvParsing)
       .via(mappingHeader)
       .via(flowMatch)
-//      .via(flowByteString)
-  //      .to(sink)
-      //        .to(sink2)
-  //      .to(sink3)
-
-//      .via(flowQ1)
-//      .to(sink3)
       .via(flowQ1Balanced)
-//            .to(sink3)
       .to(sinkQ1)
 
   //      .to(Sink.ignore)

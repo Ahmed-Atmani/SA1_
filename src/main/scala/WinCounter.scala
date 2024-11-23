@@ -2,7 +2,7 @@ import scala.collection.mutable.Map as MutMap
 
 
 class WinCounter(val map: MutMap[String, Int]):
-  def this(team_name: String) = this(MutMap((team_name, 1)))
+  def this(team_name: String, count: Int) = this(MutMap((team_name, count)))
 
   def +(that: WinCounter): WinCounter =
     val temp: MutMap[String, Int] = this.map.clone()
