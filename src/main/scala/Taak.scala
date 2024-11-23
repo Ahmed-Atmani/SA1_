@@ -20,8 +20,7 @@ class Match(val season: Int,
             val lose_pts: Int,
             val num_ot: Int,
             val academic_year: Int) extends Serializable:
-  override def toString: String =
-    s"Match(${win_team.name} [$win_pts - $lose_pts] ${lose_team.name})\n"
+  override def toString: String = s"Match(${win_team.name} [$win_pts-$lose_pts] ${lose_team.name})\n"
 
 class Team(val seed: Int,
            val region: String ,
@@ -31,7 +30,9 @@ class Team(val seed: Int,
            val team_id: String ,
            val school_ncaa: String ,
            val code_ncaa: Int,
-           val kaggle_team_id: Int) extends Serializable
+           val kaggle_team_id: Int) extends Serializable:
+  override def toString: String = s"Team($name)\n"
+
 
 object Taak1 extends App:
 
@@ -85,8 +86,8 @@ object Taak1 extends App:
 
   val flowByteString: Flow[Match, ByteString, NotUsed] = Flow[Match]
     .map(m =>
-      println(ByteString(m.toString))
-      println("---")
+//      println(ByteString(m.toString))
+//      println("---")
       ByteString(m.toString))
 
 
@@ -123,17 +124,20 @@ object Taak1 extends App:
 //      }
 //    )
 
-  val sink = FileIO.toPath(Paths.get(s"$resourcesFolder/results/taak2_results.txt"), Set(CREATE, WRITE, APPEND))
+  val sink = FileIO.toPath(Paths.get(s"$resourcesFolder/results/taak2_results.txt"),
+    Set(CREATE, WRITE)
+//  Set(CREATE, WRITE, APPEND)
+  )
 
-  //  val sink2 = Sink.foreach(println)
+    val sink2 = Sink.foreach((x: ByteString) => print(x.utf8String))
 
   val runnableGraph: RunnableGraph[Future[IOResult]] =
     source
       .via(csvParsing)
       .via(mappingHeader)
       .via(flowMatch)
-//      .via(flowSelectedStations)
       .via(flowByteString)
-      .to(sink)
+  //      .to(sink)
+        .to(sink2)
 
   runnableGraph.run().onComplete(_ => actorSystem.terminate())
