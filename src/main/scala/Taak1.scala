@@ -7,31 +7,11 @@ import akka.stream.alpakka.csv.scaladsl.{CsvParsing, CsvToMap}
 import akka.util.ByteString
 
 import java.nio.file.StandardOpenOption.*
+import scala.collection.mutable
 import scala.concurrent.{ExecutionContextExecutor, Future}
 
-class Match(val season: Int,
-            val round: Int,
-            val days_from_epoch: Int,
-            val game_date: String,
-            val day: String,
-            val win_team: Team,
-            val lose_team: Team,
-            val win_pts: Int,
-            val lose_pts: Int,
-            val num_ot: Int,
-            val academic_year: Int) extends Serializable:
-  override def toString: String = s"Match(${win_team.name} [$win_pts-$lose_pts] ${lose_team.name})\n"
-
-class Team(val seed: Int,
-           val region: String ,
-           val market: String ,
-           val name: String ,
-           val alias: String ,
-           val team_id: String ,
-           val school_ncaa: String ,
-           val code_ncaa: Int,
-           val kaggle_team_id: Int) extends Serializable:
-  override def toString: String = s"Team($name)\n"
+import scala.collection.mutable.Map as MutMap
+//import WinCounter.*
 
 
 object Taak1 extends App:
@@ -84,6 +64,13 @@ object Taak1 extends App:
         academic_year = record("academic_year").toInt,
       )})
 
+
+//  val flowQ1: Flow[Match, Map[String, Int]] = Flow[Match]
+  val flowQ1: Flow[Match, WinCounter, NotUsed] = Flow[Match]
+    .filter((m: Match) => m.day == "Sunday")
+    .map((m: Match) => WinCounter(m.win_team.name))
+    .reduce(_ + _)
+
   val flowByteString: Flow[Match, ByteString, NotUsed] = Flow[Match]
     .map(m =>
 //      println(ByteString(m.toString))
@@ -124,20 +111,25 @@ object Taak1 extends App:
 //      }
 //    )
 
-  val sink = FileIO.toPath(Paths.get(s"$resourcesFolder/results/taak2_results.txt"),
-    Set(CREATE, WRITE)
-//  Set(CREATE, WRITE, APPEND)
-  )
+//  val sink = FileIO.toPath(Paths.get(s"$resourcesFolder/results/taak2_results.txt"),
+//    Set(CREATE, WRITE)
+////  Set(CREATE, WRITE, APPEND)
+//  )
 
-    val sink2 = Sink.foreach((x: ByteString) => print(x.utf8String))
+//    val sink2 = Sink.foreach((x: ByteString) => print(x.utf8String))
+  val sink3 = Sink.foreach(println)
+  val sinkQ1 = FileIO.toPath(Paths.get(s"$resourcesFolder/results/taak1_Q1.txt"), Set(CREATE, WRITE))
 
   val runnableGraph: RunnableGraph[Future[IOResult]] =
     source
       .via(csvParsing)
       .via(mappingHeader)
       .via(flowMatch)
-      .via(flowByteString)
+//      .via(flowByteString)
   //      .to(sink)
-        .to(sink2)
-
+      //        .to(sink2)
+  //      .to(sink3)
+      .via(flowQ1)
+      .to(sink3)
+//      .to(Sink.ignore)
   runnableGraph.run().onComplete(_ => actorSystem.terminate())
