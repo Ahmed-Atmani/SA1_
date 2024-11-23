@@ -9,7 +9,29 @@ import akka.util.ByteString
 import java.nio.file.StandardOpenOption.*
 import scala.concurrent.{ExecutionContextExecutor, Future}
 
-class Match(val id: String) extends Serializable
+class Match(val season: Int,
+            val round: Int,
+            val days_from_epoch: Int,
+            val game_date: String,
+            val day: String,
+            val win_team: Team,
+            val lose_team: Team,
+            val win_pts: Int,
+            val lose_pts: Int,
+            val num_ot: Int,
+            val academic_year: Int) extends Serializable:
+  override def toString: String =
+    s"Match(${win_team.name} [$win_pts - $lose_pts] ${lose_team.name})\n"
+
+class Team(val seed: Int,
+           val region: String ,
+           val market: String ,
+           val name: String ,
+           val alias: String ,
+           val team_id: String ,
+           val school_ncaa: String ,
+           val code_ncaa: Int,
+           val kaggle_team_id: Int) extends Serializable
 
 object Taak1 extends App:
 
@@ -25,27 +47,48 @@ object Taak1 extends App:
 
   val mappingHeader: Flow[List[ByteString], Map[String, ByteString], NotUsed] = CsvToMap.toMap()
 
-  val flowMatch: Flow[Map[String, ByteString], ByteString, NotUsed] = Flow[Map[String, ByteString]]
+  val flowMatch: Flow[Map[String, ByteString], Match, NotUsed] = Flow[Map[String, ByteString]]
     .map(tempMap => {
       tempMap.map(element => {
-        println(element._1)
-        println(element._2)
-        println("---")
         (element._1, element._2.utf8String)
       })
     }).map(record => {
       Match(
-        id = record("lose_seed")//,
-//        matchable_type = record("matchable_type"),
-//        start_date = record("started_at"),
-//        end_date = record("ended_at"),
-//        start_station = Station(record("start_address_number").toInt, record("start_address")),
-//        end_station = Station(record("end_address_number").toInt, record("end_address")),
-//        start_location = Location(record("start_lat").toDouble, record("start_lng").toDouble),
-//        end_location = Location(record("end_lat").toDouble, record("end_lng").toDouble))
-      )}).map(matchObj => {
-    ByteString(matchObj.id)
-  })
+        season = record("season").toInt,
+        round = record("round").toInt,
+        days_from_epoch = record("days_from_epoch").toInt,
+        game_date = record("game_date"),
+        day = record("day"),
+        win_team = Team(seed = record("win_seed").toInt,
+                        region = record("win_region"),
+                        market = record("win_market"),
+                        name = record("win_name"),
+                        alias = record("win_alias"),
+                        team_id = record("win_team_id"),
+                        school_ncaa = record("win_school_ncaa"),
+                        code_ncaa = record("win_code_ncaa").toInt,
+                        kaggle_team_id = record("win_kaggle_team_id").toInt),
+        win_pts = record("win_pts").toInt,
+        lose_team = Team( seed = record("lose_seed").toInt,
+                          region = record("lose_region"),
+                          market = record("lose_market"),
+                          name = record("lose_name"),
+                          alias = record("lose_alias"),
+                          team_id = record("lose_team_id"),
+                          school_ncaa = record("lose_school_ncaa"),
+                          code_ncaa = record("lose_code_ncaa").toInt,
+                          kaggle_team_id = record("lose_kaggle_team_id").toInt),
+        lose_pts = record("lose_pts").toInt,
+        num_ot = record("num_ot").toInt,
+        academic_year = record("academic_year").toInt,
+      )})
+
+  val flowByteString: Flow[Match, ByteString, NotUsed] = Flow[Match]
+    .map(m =>
+      println(ByteString(m.toString))
+      println("---")
+      ByteString(m.toString))
+
 
 //  val flowOut: Flow[Match, ByteString, NotUsed] = Flow[Match].map(match => {
 //    ByteString(s"${match.id},${match.start_station.id},${match.end_station.id}\n")
@@ -90,6 +133,7 @@ object Taak1 extends App:
       .via(mappingHeader)
       .via(flowMatch)
 //      .via(flowSelectedStations)
+      .via(flowByteString)
       .to(sink)
 
   runnableGraph.run().onComplete(_ => actorSystem.terminate())
