@@ -71,11 +71,36 @@ object Taak1 extends App:
     .map((m: Match) => WinCounter(m.win_team.name))
     .reduce(_ + _)
 
-  val flowByteString: Flow[Match, ByteString, NotUsed] = Flow[Match]
-    .map(m =>
-//      println(ByteString(m.toString))
-//      println("---")
-      ByteString(m.toString))
+  val flowQ1Balanced: Graph[FlowShape[Match, ByteString], NotUsed] =
+    Flow.fromGraph(
+      GraphDSL.create() {
+        implicit builder =>
+          import GraphDSL.Implicits._
+
+          val balance = builder.add(Balance[Match](2))
+          val merge = builder.add(Merge[WinCounter](2))
+          val flowOut = builder.add(Flow[ByteString])
+
+          val sundayWinnersFilter = builder.add(Flow[Match].filter((m: Match) => m.day == "Sunday"))
+          val toCounterConverter = Flow[Match].map((m: Match) => WinCounter(m.win_team.name))
+          val counterReducer = Flow[WinCounter].reduce(_ + _)
+//          val counterReducer = Flow[WinCounter].fold(WinCounter(MutMap[String, Int]()))(_ + _).map(w => {println(w); w})
+
+//          A second reducer to merge the results of the two pipelines together
+          val counterReducer2 = Flow[WinCounter].reduce(_ + _)
+
+          val toByteString = Flow[WinCounter].map(w => ByteString(w.toString))
+
+//          Filter first because filtering after balancing might result in very unbalanced workloads per pipeline
+          sundayWinnersFilter ~> balance ~> toCounterConverter.async ~> counterReducer.async ~> merge ~> counterReducer2 ~> toByteString ~> flowOut
+                                 balance ~> toCounterConverter.async ~> counterReducer.async ~> merge
+          FlowShape(sundayWinnersFilter.in, flowOut.out)
+      })
+
+
+//  val flowByteString: Flow[Match, ByteString, NotUsed] = Flow[Match]
+//    .map(m =>
+//      ByteString(m.toString))
 
 
 //  val flowOut: Flow[Match, ByteString, NotUsed] = Flow[Match].map(match => {
@@ -98,7 +123,7 @@ object Taak1 extends App:
 //          val station110Buf = Flow[Match].buffer(50, OverflowStrategy.dropTail)
 //
 //          val station96: Flow[Match, Match, NotUsed] = Flow[Match].filter(match => match.start_station.id == 96 || match.end_station.id == 96)
-//          val station239: Flow[Match, Match, NotUsed] = Flow[Match].filter(match => match.start_station.id == 239 || match.end_station.id == 239)
+//          val station239: Flos"${m.id},${m.start_station.id},${m.end_station.id}\n"w[Match, Match, NotUsed] = Flow[Match].filter(match => match.start_station.id == 239 || match.end_station.id == 239)
 //          val station234: Flow[Match, Match, NotUsed] = Flow[Match].filter(match => match.start_station.id == 234 || match.end_station.id == 234)
 //          val station110: Flow[Match, Match, NotUsed] = Flow[Match].filter(match => match.start_station.id == 110 || match.end_station.id == 110)
 //
@@ -129,7 +154,17 @@ object Taak1 extends App:
   //      .to(sink)
       //        .to(sink2)
   //      .to(sink3)
-      .via(flowQ1)
-      .to(sink3)
-//      .to(Sink.ignore)
-  runnableGraph.run().onComplete(_ => actorSystem.terminate())
+
+//      .via(flowQ1)
+//      .to(sink3)
+      .via(flowQ1Balanced)
+//            .to(sink3)
+      .to(sinkQ1)
+
+  //      .to(Sink.ignore)
+  runnableGraph.run().onComplete(_ =>
+//  Without this line the stream will sometimes prematurely terminate, which will result in no output from the sink.
+// This has (maybe?) something to do with flushing.
+    Thread.sleep(1000)
+    actorSystem.terminate()
+  )

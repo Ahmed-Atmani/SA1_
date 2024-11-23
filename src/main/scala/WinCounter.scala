@@ -1,5 +1,6 @@
 import scala.collection.mutable.Map as MutMap
 
+
 class WinCounter(val map: MutMap[String, Int]):
   def this(team_name: String) = this(MutMap((team_name, 1)))
 
@@ -16,6 +17,3 @@ class WinCounter(val map: MutMap[String, Int]):
     var str: String = ""
     this.map.foreach((team, win_count) => str += s"Name: $team --> Won Games on Sundays: $win_count\n")
     str
-
-//  object WinCounter:
-//    val emptyWinCounter: WinCounter = new WinCounter(MutMap[String, Int]())
