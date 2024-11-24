@@ -10,12 +10,12 @@ import scala.collection.mutable.Map as MutMap
 
 
 object Question2:
-  val flow: Flow[Match, WinCounter, NotUsed] = Flow[Match]
+  val flow: Flow[Match, MatchCounter, NotUsed] = Flow[Match]
     .map((m: Match) =>
       val scoreDifference: Int = Math.abs(m.win_pts - m.lose_pts)
       if scoreDifference <= 5
-      then WinCounter(m.win_team.name, 1, Question2.printFunc)
-      else WinCounter(m.win_team.name, 0, Question2.printFunc))
+      then MatchCounter(m.win_team.name, 1, Question2.printFunc)
+      else MatchCounter(m.win_team.name, 0, Question2.printFunc))
     .reduce(_ + _)
 
   val flowBalanced: Graph[FlowShape[Match, ByteString], NotUsed] =
@@ -25,21 +25,21 @@ object Question2:
           import GraphDSL.Implicits._
 
           val balance = builder.add(Balance[Match](2))
-          val merge = builder.add(Merge[WinCounter](2))
+          val merge = builder.add(Merge[MatchCounter](2))
           val flowOut = builder.add(Flow[ByteString])
 
           val toCounterConverter = Flow[Match]
             .map((m: Match) =>
               val scoreDifference: Int = Math.abs(m.win_pts - m.lose_pts)
               if scoreDifference <= 5
-              then WinCounter(m.win_team.name, 1, Question2.printFunc)
-              else WinCounter(m.win_team.name, 0, Question2.printFunc))
-          val counterReducer = Flow[WinCounter].reduce(_ + _)
+              then MatchCounter(m.win_team.name, 1, Question2.printFunc)
+              else MatchCounter(m.win_team.name, 0, Question2.printFunc))
+          val counterReducer = Flow[MatchCounter].reduce(_ + _)
 
           // A second reducer to merge the results of the two pipelines together
-          val counterReducer2 = Flow[WinCounter].reduce(_ + _)
+          val counterReducer2 = Flow[MatchCounter].reduce(_ + _)
 
-          val toByteString = Flow[WinCounter].map(w => ByteString(w.toString))
+          val toByteString = Flow[MatchCounter].map(w => ByteString(w.toString))
           val buffer = Flow[Match].buffer(20, OverflowStrategy.backpressure)
 
           balance ~> buffer ~> toCounterConverter.async ~> counterReducer.async ~> merge ~> counterReducer2 ~> toByteString ~> flowOut
@@ -47,7 +47,7 @@ object Question2:
 
           FlowShape(balance.in, flowOut.out)})
 
-  val sink = FileIO.toPath(Paths.get(s"$resourcesFolder/results/Q2.txt"), Set(CREATE, WRITE))
+  val sink = FileIO.toPath(Paths.get(s"$resourcesFolder/results/Q2.txt"), Set(CREATE, WRITE, TRUNCATE_EXISTING))
 
   def printFunc(map: MutMap[String, Int]): String =
     var str: String = ""

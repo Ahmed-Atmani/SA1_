@@ -26,8 +26,8 @@ object Taak1 extends App:
   val runnableGraph: RunnableGraph[Future[IOResult]] =
     source
       .via(FileDataToMatch.byteStringToMatchFlow)
-      .via(Question1.flowBalanced)
-      .to(Question1.sink)
+      .via(Question3.flow)
+      .to(Question3.sink)
 
   runnableGraph.run().onComplete(_ =>
 // Without this Thread.sleep the stream will sometimes prematurely terminate, which will result in no output from the sink.
