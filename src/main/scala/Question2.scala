@@ -10,15 +10,7 @@ import scala.collection.mutable.Map as MutMap
 
 
 object Question2:
-  val flow: Flow[Match, MatchCounter, NotUsed] = Flow[Match]
-    .map((m: Match) =>
-      val scoreDifference: Int = Math.abs(m.win_pts - m.lose_pts)
-      if scoreDifference <= 5
-      then MatchCounter(m.win_team.name, 1, Question2.printFunc)
-      else MatchCounter(m.win_team.name, 0, Question2.printFunc))
-    .reduce(_ + _)
-
-  val flowBalanced: Graph[FlowShape[Match, ByteString], NotUsed] =
+  val flowGraph: Graph[FlowShape[Match, ByteString], NotUsed] =
     Flow.fromGraph(
       GraphDSL.create() {
         implicit builder =>

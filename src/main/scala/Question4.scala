@@ -10,12 +10,7 @@ import scala.collection.mutable.Map as MutMap
 
 
 object Question4:
-  val flow: Flow[Match, ByteString, NotUsed] = Flow[Match]
-    .filter((m: Match) => 1980 <= m.academic_year && m.academic_year <= 1990)
-    .fold(0)((c: Int, m: Match) => c + 1) // each matchup has exactly 1 losing team
-    .map(c => ByteString(s"Amount of losses between 1980 and 1990: ${c.toString}"))
-
-  val flowBalanced: Graph[FlowShape[Match, ByteString], NotUsed] =
+  val flowGraph: Graph[FlowShape[Match, ByteString], NotUsed] =
     Flow.fromGraph(
       GraphDSL.create() {
         implicit builder =>
