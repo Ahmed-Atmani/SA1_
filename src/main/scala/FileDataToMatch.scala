@@ -1,6 +1,6 @@
 import akka.NotUsed
 import akka.stream.alpakka.csv.scaladsl.{CsvParsing, CsvToMap}
-import akka.stream.{FlowShape, Graph}
+import akka.stream.{FlowShape, Graph, OverflowStrategy}
 import akka.stream.scaladsl.{Flow, GraphDSL}
 import akka.util.ByteString
 
@@ -52,8 +52,9 @@ object FileDataToMatch:
                 )
               })
 
+            val buffer = Flow[List[ByteString]].buffer(20, OverflowStrategy.backpressure)
             val flowOut = builder.add(Flow[Match])
 
-            fileDataToLines ~> linesToMaps ~> mapsToMatch ~> flowOut
+            fileDataToLines ~> buffer ~> linesToMaps ~> mapsToMatch ~> flowOut
             
             FlowShape(fileDataToLines.in, flowOut.out)})

@@ -30,10 +30,10 @@ object Question4:
           val finalsCountMerger = Flow[Int].reduce(_ + _)
           val toByteString = Flow[Int].map(w => ByteString(w.toString))
 
-          val buffer = Flow[Match].buffer(20, OverflowStrategy.backpressure)
+//          val buffer = Flow[Match].buffer(20, OverflowStrategy.backpressure)
 
-          balance ~> buffer ~> filterNonQuarterFinals.async ~> finalsCounter.async ~> merge ~> finalsCountMerger ~> toByteString ~> flowOut
-          balance ~> buffer ~> filterNonQuarterFinals.async ~> finalsCounter.async ~> merge
+          balance ~> filterNonQuarterFinals.async ~> finalsCounter.async ~> merge ~> finalsCountMerger ~> toByteString ~> flowOut
+          balance ~> filterNonQuarterFinals.async ~> finalsCounter.async ~> merge
 
           FlowShape(balance.in, flowOut.out)})
 
