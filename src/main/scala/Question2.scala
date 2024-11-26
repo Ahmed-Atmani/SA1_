@@ -32,10 +32,10 @@ object Question2:
           val counterReducer2 = Flow[MatchCounter].reduce(_ + _)
 
           val toByteString = Flow[MatchCounter].map(w => ByteString(w.toString))
-//          val buffer = Flow[Match].buffer(20, OverflowStrategy.backpressure)
+          val buffer = Flow[Match].buffer(20, OverflowStrategy.backpressure)
 
-          balance ~> toCounterConverter.async ~> counterReducer.async ~> merge ~> counterReducer2 ~> toByteString ~> flowOut
-          balance ~> toCounterConverter.async ~> counterReducer.async ~> merge
+          balance ~> buffer ~> toCounterConverter.async ~> counterReducer.async ~> merge ~> counterReducer2 ~> toByteString ~> flowOut
+          balance ~> buffer ~> toCounterConverter.async ~> counterReducer.async ~> merge
 
           FlowShape(balance.in, flowOut.out)})
 

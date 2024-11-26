@@ -52,9 +52,8 @@ object FileDataToMatch:
                 )
               })
 
-            val buffer = Flow[List[ByteString]].buffer(20, OverflowStrategy.backpressure)
             val flowOut = builder.add(Flow[Match])
 
-            fileDataToLines ~> buffer ~> linesToMaps ~> mapsToMatch ~> flowOut
+            fileDataToLines ~> linesToMaps ~> mapsToMatch ~> flowOut
             
             FlowShape(fileDataToLines.in, flowOut.out)})

@@ -39,21 +39,6 @@ object Taak1 extends App:
       .via(Question4.flowGraph)
       .to(Question4.sink)
 
-//  val graph: RunnableGraph[NotUsed] = RunnableGraph.fromGraph(GraphDSL.create() {
-//    implicit builder =>
-//      import GraphDSL.Implicits._
-//
-//      val source1 = builder.add(FileIO.fromPath(pathCSVFile))
-//      val broadcast = builder.add(Broadcast[Match](4))
-//      val byteStringToMatch = builder.add(FileDataToMatch.byteStringToMatchFlow)
-//
-//      source1 ~> byteStringToMatch ~> broadcast ~> Question1.flowBalanced.async ~> Question1.sink.async
-//                                      broadcast ~> Question2.flowBalanced.async ~> Question2.sink.async
-//                                      broadcast ~> Question3.flowBalanced.async ~> Question3.sink.async
-//                                      broadcast ~> Question4.flowBalanced.async ~> Question4.sink.async
-//      ClosedShape
-//  })
-
   graphQ1.run().onComplete(_ =>
     println("Finished Q1")
     graphQ2.run().onComplete(_ =>
