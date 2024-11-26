@@ -8,6 +8,9 @@ import java.nio.file.StandardOpenOption.*
 import java.nio.file.Paths
 import scala.collection.mutable.Map as MutMap
 
+class Counter(val name: String, val counter: Int):
+  override def toString: String = s"$name - $counter"
+  def +(that: Counter): Counter = Counter(that.name, this.counter + that.counter)
 
 object Question1:
   val flowGraph: Graph[FlowShape[Match, ByteString], NotUsed] =
@@ -20,11 +23,17 @@ object Question1:
           val merge = builder.add(Merge[MatchCounter](2))
           val flowOut = builder.add(Flow[ByteString])
 
-          val toCounterConverter = Flow[Match]
+          val groupAndCount: Flow[Match, MatchCounter, NotUsed] = Flow[Match]
+            .groupBy(1000, (m: Match) => m.win_team.name)
             .map((m: Match) =>
               if m.day == "Sunday"
-              then MatchCounter(m.win_team.name, 1, Question1.printFunc)
-              else MatchCounter(m.win_team.name, 0, Question1.printFunc))
+              then Counter(m.win_team.name, 1)
+              else Counter(m.win_team.name, 0))
+            .reduce(_ + _)
+//            .wireTap(x => println(x))
+            .mergeSubstreams
+            .map((c: Counter) => MatchCounter(c.name, c.counter, Question1.printFunc))
+
           val counterReducer = Flow[MatchCounter].reduce(_ + _)
 
           // A second reducer to merge the results of the two pipelines together
@@ -33,8 +42,10 @@ object Question1:
           val toByteString = Flow[MatchCounter].map(w => ByteString(w.toString))
           val buffer = Flow[Match].buffer(20, OverflowStrategy.backpressure)
 
-          balance ~>  buffer ~> toCounterConverter.async ~> counterReducer.async ~> merge ~> counterReducer2 ~> toByteString ~> flowOut
-          balance ~>  buffer ~> toCounterConverter.async ~> counterReducer.async ~> merge
+          val printer = Flow[MatchCounter].map(m => {println(m); m})
+
+          balance ~>  buffer ~> groupAndCount.async ~> counterReducer.async ~> merge ~> printer ~> counterReducer2 ~> toByteString ~> flowOut
+          balance ~>  buffer ~> groupAndCount.async ~> counterReducer.async ~> merge
 
           FlowShape(balance.in, flowOut.out)})
 
