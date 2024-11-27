@@ -17,25 +17,30 @@ object Question2:
           import GraphDSL.Implicits._
 
           val balance = builder.add(Balance[Match](2))
-          val merge = builder.add(Merge[MatchCounter](2))
+          val merge = builder.add(Merge[MultiCounter](2))
           val flowOut = builder.add(Flow[ByteString])
 
-          val toCounterConverter = Flow[Match]
+          val groupAndCount: Flow[Match, MultiCounter, NotUsed] = Flow[Match]
+            .groupBy(1000, (m: Match) => m.win_team.name)
             .map((m: Match) =>
               val scoreDifference: Int = Math.abs(m.win_pts - m.lose_pts)
               if scoreDifference <= 5
-              then MatchCounter(m.win_team.name, 1, Question2.printFunc)
-              else MatchCounter(m.win_team.name, 0, Question2.printFunc))
-          val counterReducer = Flow[MatchCounter].reduce(_ + _)
+              then SingleCounter(m.win_team.name, 1)
+              else SingleCounter(m.win_team.name, 0))
+            .reduce(_ + _)
+            .mergeSubstreams
+            .map((c: SingleCounter) => MultiCounter(c.name, c.counter, Question2.printFunc))
+              
+          val counterReducer = Flow[MultiCounter].reduce(_ + _)
 
           // A second reducer to merge the results of the two pipelines together
-          val counterReducer2 = Flow[MatchCounter].reduce(_ + _)
+          val counterReducer2 = Flow[MultiCounter].reduce(_ + _)
 
-          val toByteString = Flow[MatchCounter].map(w => ByteString(w.toString))
+          val toByteString = Flow[MultiCounter].map(w => ByteString(w.toString))
           val buffer = Flow[Match].buffer(20, OverflowStrategy.backpressure)
 
-          balance ~> buffer ~> toCounterConverter.async ~> counterReducer.async ~> merge ~> counterReducer2 ~> toByteString ~> flowOut
-          balance ~> buffer ~> toCounterConverter.async ~> counterReducer.async ~> merge
+          balance ~> buffer ~> groupAndCount.async ~> counterReducer.async ~> merge ~> counterReducer2 ~> toByteString ~> flowOut
+          balance ~> buffer ~> groupAndCount.async ~> counterReducer.async ~> merge
 
           FlowShape(balance.in, flowOut.out)})
 
