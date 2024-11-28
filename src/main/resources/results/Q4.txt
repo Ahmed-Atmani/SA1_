@@ -1,1 +1,119 @@
-198
+Name: Yellow Jackets --> Lost games beteween 1980 and 1990: 6
+Name: Braves --> Lost games beteween 1980 and 1990: 2
+Name: Colonials --> Lost games beteween 1980 and 1990: 2
+Name: Mountain Hawks --> Lost games beteween 1980 and 1990: 2
+Name: Midshipmen --> Lost games beteween 1980 and 1990: 3
+Name: Orange --> Lost games beteween 1980 and 1990: 6
+Name: Rams --> Lost games beteween 1980 and 1990: 4
+Name: Hokies --> Lost games beteween 1980 and 1990: 2
+Name: Bison --> Lost games beteween 1980 and 1990: 2
+Name: Gamecocks --> Lost games beteween 1980 and 1990: 1
+Name: Tar Heels --> Lost games beteween 1980 and 1990: 6
+Name: Cyclones --> Lost games beteween 1980 and 1990: 4
+Name: Hilltoppers --> Lost games beteween 1980 and 1990: 2
+Name: Cardinal --> Lost games beteween 1980 and 1990: 1
+Name: Bobcats --> Lost games beteween 1980 and 1990: 2
+Name: RedHawks --> Lost games beteween 1980 and 1990: 2
+Name: Stags --> Lost games beteween 1980 and 1990: 2
+Name: Trojans --> Lost games beteween 1980 and 1990: 4
+Name: Quakers --> Lost games beteween 1980 and 1990: 2
+Name: Hoosiers --> Lost games beteween 1980 and 1990: 4
+Name: Mountaineers --> Lost games beteween 1980 and 1990: 3
+Name: Golden Hurricane --> Lost games beteween 1980 and 1990: 3
+Name: Boilermakers --> Lost games beteween 1980 and 1990: 5
+Name: Redbirds --> Lost games beteween 1980 and 1990: 2
+Name: 49ers --> Lost games beteween 1980 and 1990: 1
+Name: Hawkeyes --> Lost games beteween 1980 and 1990: 5
+Name: Shockers --> Lost games beteween 1980 and 1990: 3
+Name: Golden Bears --> Lost games beteween 1980 and 1990: 1
+Name: Dolphins --> Lost games beteween 1980 and 1990: 1
+Name: Bengals --> Lost games beteween 1980 and 1990: 1
+Name: Hawks --> Lost games beteween 1980 and 1990: 1
+Name: Mustangs --> Lost games beteween 1980 and 1990: 2
+Name: Gators --> Lost games beteween 1980 and 1990: 3
+Name: Scarlet Knights --> Lost games beteween 1980 and 1990: 1
+Name: Knights --> Lost games beteween 1980 and 1990: 2
+Name: Jaguars --> Lost games beteween 1980 and 1990: 5
+Name: Eagles --> Lost games beteween 1980 and 1990: 4
+Name: Razorbacks --> Lost games beteween 1980 and 1990: 4
+Name: Governors --> Lost games beteween 1980 and 1990: 1
+Name: Red Storm --> Lost games beteween 1980 and 1990: 5
+Name: Vikings --> Lost games beteween 1980 and 1990: 1
+Name: Cardinals --> Lost games beteween 1980 and 1990: 6
+Name: Wolverines --> Lost games beteween 1980 and 1990: 5
+Name: Blazers --> Lost games beteween 1980 and 1990: 4
+Name: Thundering Herd --> Lost games beteween 1980 and 1990: 2
+Name: Vandals --> Lost games beteween 1980 and 1990: 2
+Name: Toreros --> Lost games beteween 1980 and 1990: 1
+Name: Gaels --> Lost games beteween 1980 and 1990: 2
+Name: Roadrunners --> Lost games beteween 1980 and 1990: 1
+Name: Ramblers --> Lost games beteween 1980 and 1990: 1
+Name: Aces --> Lost games beteween 1980 and 1990: 1
+Name: Jayhawks --> Lost games beteween 1980 and 1990: 4
+Name: Big Red --> Lost games beteween 1980 and 1990: 1
+Name: Delta Devils --> Lost games beteween 1980 and 1990: 1
+Name: Cowboys --> Lost games beteween 1980 and 1990: 3
+Name: Sooners --> Lost games beteween 1980 and 1990: 6
+Name: Red Foxes --> Lost games beteween 1980 and 1990: 2
+Name: Rebels --> Lost games beteween 1980 and 1990: 5
+Name: Buccaneers --> Lost games beteween 1980 and 1990: 2
+Name: Bulls --> Lost games beteween 1980 and 1990: 1
+Name: Racers --> Lost games beteween 1980 and 1990: 2
+Name: Utes --> Lost games beteween 1980 and 1990: 1
+Name: Pirates --> Lost games beteween 1980 and 1990: 2
+Name: Terrapins --> Lost games beteween 1980 and 1990: 3
+Name: Warhawks --> Lost games beteween 1980 and 1990: 2
+Name: Waves --> Lost games beteween 1980 and 1990: 2
+Name: Aggies --> Lost games beteween 1980 and 1990: 7
+Name: Miners --> Lost games beteween 1980 and 1990: 6
+Name: Mocs --> Lost games beteween 1980 and 1990: 1
+Name: Dragons --> Lost games beteween 1980 and 1990: 1
+Name: Seminoles --> Lost games beteween 1980 and 1990: 2
+Name: Red Raiders --> Lost games beteween 1980 and 1990: 2
+Name: Musketeers --> Lost games beteween 1980 and 1990: 5
+Name: Huskies --> Lost games beteween 1980 and 1990: 6
+Name: Bluejays --> Lost games beteween 1980 and 1990: 1
+Name: Volunteers --> Lost games beteween 1980 and 1990: 1
+Name: Explorers --> Lost games beteween 1980 and 1990: 3
+Name: Aztecs --> Lost games beteween 1980 and 1990: 1
+Name: Chippewas --> Lost games beteween 1980 and 1990: 1
+Name: Crimson Tide --> Lost games beteween 1980 and 1990: 5
+Name: Longhorns --> Lost games beteween 1980 and 1990: 2
+Name: Blue Devils --> Lost games beteween 1980 and 1990: 6
+Name: Wildcats --> Lost games beteween 1980 and 1990: 18
+Name: Owls --> Lost games beteween 1980 and 1990: 5
+Name: Flyers --> Lost games beteween 1980 and 1990: 2
+Name: Golden Gophers --> Lost games beteween 1980 and 1990: 2
+Name: Friars --> Lost games beteween 1980 and 1990: 3
+Name: Fighting Illini --> Lost games beteween 1980 and 1990: 6
+Name: Fighting Irish --> Lost games beteween 1980 and 1990: 6
+Name: Golden Eagles --> Lost games beteween 1980 and 1990: 1
+Name: Buckeyes --> Lost games beteween 1980 and 1990: 3
+Name: Spiders --> Lost games beteween 1980 and 1990: 3
+Name: Zips --> Lost games beteween 1980 and 1990: 1
+Name: Commodores --> Lost games beteween 1980 and 1990: 2
+Name: Gauchos --> Lost games beteween 1980 and 1990: 2
+Name: Horned Frogs --> Lost games beteween 1980 and 1990: 1
+Name: Monarchs --> Lost games beteween 1980 and 1990: 2
+Name: Cavaliers --> Lost games beteween 1980 and 1990: 4
+Name: Cougars --> Lost games beteween 1980 and 1990: 5
+Name: Blue Demons --> Lost games beteween 1980 and 1990: 5
+Name: Beavers --> Lost games beteween 1980 and 1990: 4
+Name: Bears --> Lost games beteween 1980 and 1990: 7
+Name: Hoyas --> Lost games beteween 1980 and 1990: 6
+Name: Bruins --> Lost games beteween 1980 and 1990: 3
+Name: Terriers --> Lost games beteween 1980 and 1990: 2
+Name: Lions --> Lost games beteween 1980 and 1990: 3
+Name: Bulldogs --> Lost games beteween 1980 and 1990: 7
+Name: Wolf Pack --> Lost games beteween 1980 and 1990: 1
+Name: Privateers --> Lost games beteween 1980 and 1990: 1
+Name: Spartans --> Lost games beteween 1980 and 1990: 3
+Name: Mean Green --> Lost games beteween 1980 and 1990: 1
+Name: Broncos --> Lost games beteween 1980 and 1990: 2
+Name: Blue Raiders --> Lost games beteween 1980 and 1990: 3
+Name: Patriots --> Lost games beteween 1980 and 1990: 1
+Name: Panthers --> Lost games beteween 1980 and 1990: 5
+Name: Saints --> Lost games beteween 1980 and 1990: 1
+Name: Cornhuskers --> Lost games beteween 1980 and 1990: 1
+Name: Tigers --> Lost games beteween 1980 and 1990: 26
+Name: Wolfpack --> Lost games beteween 1980 and 1990: 5

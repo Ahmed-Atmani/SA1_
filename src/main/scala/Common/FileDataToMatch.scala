@@ -1,7 +1,9 @@
+package Common
+
 import akka.NotUsed
 import akka.stream.alpakka.csv.scaladsl.{CsvParsing, CsvToMap}
-import akka.stream.{FlowShape, Graph, OverflowStrategy}
 import akka.stream.scaladsl.{Flow, GraphDSL}
+import akka.stream.{FlowShape, Graph, OverflowStrategy}
 import akka.util.ByteString
 
 
@@ -11,7 +13,7 @@ object FileDataToMatch:
       Flow.fromGraph(
         GraphDSL.create() {
           implicit builder =>
-            import GraphDSL.Implicits._
+            import GraphDSL.Implicits.*
 
             val fileDataToLines = builder.add(CsvParsing.lineScanner())
             val linesToMaps: Flow[List[ByteString], Map[String, ByteString], NotUsed] = CsvToMap.toMap()

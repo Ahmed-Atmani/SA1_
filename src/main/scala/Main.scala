@@ -1,19 +1,20 @@
+import Common.{Constants, FileDataToMatch}
+import QuestionFlows.{Question1, Question2, Question3, Question4}
+
 import java.nio.file.{Path, Paths}
 import akka.actor.ActorSystem
 import akka.stream.IOResult
 import akka.stream.scaladsl.{FileIO, RunnableGraph, Source}
 import akka.util.ByteString
+
 import scala.concurrent.{ExecutionContextExecutor, Future}
 
 
-object Taak1 extends App:
+object Main extends App:
 
-  implicit val actorSystem: ActorSystem = ActorSystem("Taak1")
+  implicit val actorSystem: ActorSystem = ActorSystem("Main")
   implicit val dispatcher: ExecutionContextExecutor = actorSystem.dispatcher
-
-  val resourcesFolder: String = "src/main/resources"
-  val pathCSVFile: Path = Paths.get(s"$resourcesFolder/basketball.csv")
-  val source: Source[ByteString, Future[IOResult]] = FileIO.fromPath(pathCSVFile)
+  val source: Source[ByteString, Future[IOResult]] = FileIO.fromPath(Constants.pathCSVFile)
 
   val graphQ1: RunnableGraph[Future[IOResult]] =
     source

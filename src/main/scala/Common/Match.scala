@@ -1,3 +1,5 @@
+package Common
+
 class Match(val season: Int,
             val round: Int,
             val days_from_epoch: Int,

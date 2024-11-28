@@ -1,1 +1,40 @@
-198
+Name: Gators --> Amount of participated games at least in quarter-finals: 8
+Name: Utes --> Amount of participated games at least in quarter-finals: 2
+Name: Yellow Jackets --> Amount of participated games at least in quarter-finals: 3
+Name: Pirates --> Amount of participated games at least in quarter-finals: 2
+Name: Terrapins --> Amount of participated games at least in quarter-finals: 3
+Name: Razorbacks --> Amount of participated games at least in quarter-finals: 5
+Name: Orange --> Amount of participated games at least in quarter-finals: 8
+Name: Ducks --> Amount of participated games at least in quarter-finals: 1
+Name: Hoyas --> Amount of participated games at least in quarter-finals: 3
+Name: Red Storm --> Amount of participated games at least in quarter-finals: 1
+Name: Cardinals --> Amount of participated games at least in quarter-finals: 6
+Name: Rams --> Amount of participated games at least in quarter-finals: 1
+Name: Wolverines --> Amount of participated games at least in quarter-finals: 8
+Name: Bruins --> Amount of participated games at least in quarter-finals: 6
+Name: Badgers --> Amount of participated games at least in quarter-finals: 4
+Name: Gamecocks --> Amount of participated games at least in quarter-finals: 1
+Name: Bulldogs --> Amount of participated games at least in quarter-finals: 7
+Name: Tar Heels --> Amount of participated games at least in quarter-finals: 16
+Name: Huskies --> Amount of participated games at least in quarter-finals: 9
+Name: Spartans --> Amount of participated games at least in quarter-finals: 9
+Name: Longhorns --> Amount of participated games at least in quarter-finals: 1
+Name: Cardinal --> Amount of participated games at least in quarter-finals: 1
+Name: Blue Devils --> Amount of participated games at least in quarter-finals: 21
+Name: Wildcats --> Amount of participated games at least in quarter-finals: 24
+Name: Bearcats --> Amount of participated games at least in quarter-finals: 1
+Name: Golden Gophers --> Amount of participated games at least in quarter-finals: 1
+Name: Friars --> Amount of participated games at least in quarter-finals: 1
+Name: Hoosiers --> Amount of participated games at least in quarter-finals: 5
+Name: Patriots --> Amount of participated games at least in quarter-finals: 1
+Name: Fighting Illini --> Amount of participated games at least in quarter-finals: 3
+Name: Jayhawks --> Amount of participated games at least in quarter-finals: 13
+Name: Golden Eagles --> Amount of participated games at least in quarter-finals: 1
+Name: Mountaineers --> Amount of participated games at least in quarter-finals: 1
+Name: Cowboys --> Amount of participated games at least in quarter-finals: 2
+Name: Buckeyes --> Amount of participated games at least in quarter-finals: 4
+Name: Minutemen --> Amount of participated games at least in quarter-finals: 1
+Name: Sooners --> Amount of participated games at least in quarter-finals: 4
+Name: Rebels --> Amount of participated games at least in quarter-finals: 4
+Name: Tigers --> Amount of participated games at least in quarter-finals: 5
+Name: Shockers --> Amount of participated games at least in quarter-finals: 1

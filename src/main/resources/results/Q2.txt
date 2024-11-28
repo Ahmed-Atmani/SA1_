@@ -1,137 +1,113 @@
-Name: Lumberjacks --> Won Games with score difference of 5 or less: 1
-Name: Yellow Jackets --> Won Games with score difference of 5 or less: 11
-Name: Braves --> Won Games with score difference of 5 or less: 1
-Name: Colonials --> Won Games with score difference of 5 or less: 3
-Name: Mountain Hawks --> Won Games with score difference of 5 or less: 1
-Name: Demon Deacons --> Won Games with score difference of 5 or less: 7
-Name: Midshipmen --> Won Games with score difference of 5 or less: 1
-Name: Orange --> Won Games with score difference of 5 or less: 16
-Name: Purple Eagles --> Won Games with score difference of 5 or less: 0
-Name: Green Wave --> Won Games with score difference of 5 or less: 2
-Name: Rams --> Won Games with score difference of 5 or less: 5
-Name: Hokies --> Won Games with score difference of 5 or less: 1
-Name: Bison --> Won Games with score difference of 5 or less: 3
-Name: Gamecocks --> Won Games with score difference of 5 or less: 0
-Name: Tar Heels --> Won Games with score difference of 5 or less: 14
-Name: Cyclones --> Won Games with score difference of 5 or less: 6
-Name: Catamounts --> Won Games with score difference of 5 or less: 1
-Name: Hilltoppers --> Won Games with score difference of 5 or less: 6
-Name: Lobos --> Won Games with score difference of 5 or less: 3
-Name: Great Danes --> Won Games with score difference of 5 or less: 0
-Name: Cardinal --> Won Games with score difference of 5 or less: 5
-Name: Bobcats --> Won Games with score difference of 5 or less: 1
-Name: RedHawks --> Won Games with score difference of 5 or less: 1
-Name: Trojans --> Won Games with score difference of 5 or less: 5
-Name: Quakers --> Won Games with score difference of 5 or less: 0
-Name: Hoosiers --> Won Games with score difference of 5 or less: 8
-Name: Mountaineers --> Won Games with score difference of 5 or less: 4
-Name: Golden Hurricane --> Won Games with score difference of 5 or less: 2
-Name: Minutemen --> Won Games with score difference of 5 or less: 2
-Name: Boilermakers --> Won Games with score difference of 5 or less: 11
-Name: Redbirds --> Won Games with score difference of 5 or less: 2
-Name: 49ers --> Won Games with score difference of 5 or less: 0
-Name: Hawkeyes --> Won Games with score difference of 5 or less: 6
-Name: Shockers --> Won Games with score difference of 5 or less: 2
-Name: Crusaders --> Won Games with score difference of 5 or less: 2
-Name: Golden Bears --> Won Games with score difference of 5 or less: 6
-Name: Hawks --> Won Games with score difference of 5 or less: 6
-Name: Mustangs --> Won Games with score difference of 5 or less: 0
-Name: Gators --> Won Games with score difference of 5 or less: 6
-Name: Jaguars --> Won Games with score difference of 5 or less: 1
-Name: Eagles --> Won Games with score difference of 5 or less: 7
-Name: Razorbacks --> Won Games with score difference of 5 or less: 8
-Name: Governors --> Won Games with score difference of 5 or less: 1
-Name: Ducks --> Won Games with score difference of 5 or less: 7
-Name: Red Storm --> Won Games with score difference of 5 or less: 3
-Name: Vikings --> Won Games with score difference of 5 or less: 1
-Name: Warriors --> Won Games with score difference of 5 or less: 0
-Name: Cardinals --> Won Games with score difference of 5 or less: 13
-Name: Titans --> Won Games with score difference of 5 or less: 2
-Name: Wolverines --> Won Games with score difference of 5 or less: 21
-Name: Blazers --> Won Games with score difference of 5 or less: 5
-Name: Buffaloes --> Won Games with score difference of 5 or less: 1
-Name: Sun Devils --> Won Games with score difference of 5 or less: 1
-Name: Toreros --> Won Games with score difference of 5 or less: 1
-Name: Gaels --> Won Games with score difference of 5 or less: 0
-Name: Nittany Lions --> Won Games with score difference of 5 or less: 1
-Name: Roadrunners --> Won Games with score difference of 5 or less: 0
-Name: Golden Flashes --> Won Games with score difference of 5 or less: 2
-Name: Ramblers --> Won Games with score difference of 5 or less: 1
-Name: Jaspers --> Won Games with score difference of 5 or less: 0
-Name: Aces --> Won Games with score difference of 5 or less: 1
-Name: Jayhawks --> Won Games with score difference of 5 or less: 15
-Name: Big Red --> Won Games with score difference of 5 or less: 0
-Name: Cowboys --> Won Games with score difference of 5 or less: 5
-Name: Sooners --> Won Games with score difference of 5 or less: 6
-Name: Rebels --> Won Games with score difference of 5 or less: 10
-Name: Buccaneers --> Won Games with score difference of 5 or less: 0
-Name: Bulls --> Won Games with score difference of 5 or less: 0
-Name: Crimson --> Won Games with score difference of 5 or less: 1
-Name: Racers --> Won Games with score difference of 5 or less: 2
-Name: Utes --> Won Games with score difference of 5 or less: 5
-Name: Pirates --> Won Games with score difference of 5 or less: 6
-Name: Terrapins --> Won Games with score difference of 5 or less: 8
-Name: Waves --> Won Games with score difference of 5 or less: 0
-Name: Aggies --> Won Games with score difference of 5 or less: 5
-Name: Miners --> Won Games with score difference of 5 or less: 2
-Name: Mocs --> Won Games with score difference of 5 or less: 1
-Name: Badgers --> Won Games with score difference of 5 or less: 11
-Name: Dragons --> Won Games with score difference of 5 or less: 0
-Name: Seminoles --> Won Games with score difference of 5 or less: 3
-Name: Red Raiders --> Won Games with score difference of 5 or less: 3
-Name: Golden Grizzlies --> Won Games with score difference of 5 or less: 0
-Name: Musketeers --> Won Games with score difference of 5 or less: 8
-Name: Huskies --> Won Games with score difference of 5 or less: 16
-Name: Bluejays --> Won Games with score difference of 5 or less: 4
-Name: Volunteers --> Won Games with score difference of 5 or less: 6
-Name: Explorers --> Won Games with score difference of 5 or less: 2
-Name: Grizzlies --> Won Games with score difference of 5 or less: 0
-Name: Aztecs --> Won Games with score difference of 5 or less: 1
-Name: Chippewas --> Won Games with score difference of 5 or less: 0
-Name: Crimson Tide --> Won Games with score difference of 5 or less: 6
-Name: Longhorns --> Won Games with score difference of 5 or less: 10
-Name: Billikens --> Won Games with score difference of 5 or less: 3
-Name: Blue Devils --> Won Games with score difference of 5 or less: 17
-Name: Wildcats --> Won Games with score difference of 5 or less: 45
-Name: Salukis --> Won Games with score difference of 5 or less: 1
-Name: Owls --> Won Games with score difference of 5 or less: 3
-Name: Hurricanes --> Won Games with score difference of 5 or less: 2
-Name: Flyers --> Won Games with score difference of 5 or less: 4
-Name: Golden Gophers --> Won Games with score difference of 5 or less: 2
-Name: Friars --> Won Games with score difference of 5 or less: 2
-Name: Fighting Illini --> Won Games with score difference of 5 or less: 4
-Name: Fighting Irish --> Won Games with score difference of 5 or less: 7
-Name: Golden Eagles --> Won Games with score difference of 5 or less: 6
-Name: Buckeyes --> Won Games with score difference of 5 or less: 8
-Name: Spiders --> Won Games with score difference of 5 or less: 5
-Name: Commodores --> Won Games with score difference of 5 or less: 3
-Name: Sycamores --> Won Games with score difference of 5 or less: 1
-Name: Gauchos --> Won Games with score difference of 5 or less: 1
-Name: Horned Frogs --> Won Games with score difference of 5 or less: 0
-Name: Monarchs --> Won Games with score difference of 5 or less: 1
-Name: Ragin' Cajuns --> Won Games with score difference of 5 or less: 1
-Name: Cavaliers --> Won Games with score difference of 5 or less: 3
-Name: Demons --> Won Games with score difference of 5 or less: 2
-Name: Cougars --> Won Games with score difference of 5 or less: 0
-Name: Blue Demons --> Won Games with score difference of 5 or less: 3
-Name: Bears --> Won Games with score difference of 5 or less: 3
-Name: Hoyas --> Won Games with score difference of 5 or less: 8
-Name: Bruins --> Won Games with score difference of 5 or less: 14
-Name: Lions --> Won Games with score difference of 5 or less: 2
-Name: Bulldogs --> Won Games with score difference of 5 or less: 18
-Name: Phoenix --> Won Games with score difference of 5 or less: 1
-Name: Wolf Pack --> Won Games with score difference of 5 or less: 1
-Name: Privateers --> Won Games with score difference of 5 or less: 1
-Name: Spartans --> Won Games with score difference of 5 or less: 14
-Name: Golden Lions --> Won Games with score difference of 5 or less: 0
-Name: Broncos --> Won Games with score difference of 5 or less: 2
-Name: Bearcats --> Won Games with score difference of 5 or less: 5
-Name: Rattlers --> Won Games with score difference of 5 or less: 0
-Name: Blue Raiders --> Won Games with score difference of 5 or less: 0
-Name: Patriots --> Won Games with score difference of 5 or less: 3
-Name: Seahawks --> Won Games with score difference of 5 or less: 1
-Name: Panthers --> Won Games with score difference of 5 or less: 9
-Name: Saints --> Won Games with score difference of 5 or less: 3
-Name: Tigers --> Won Games with score difference of 5 or less: 30
-Name: Wolfpack --> Won Games with score difference of 5 or less: 6
-Name: Dukes --> Won Games with score difference of 5 or less: 0
+Name: Lumberjacks --> Won games with score difference of 5 or less: 1
+Name: Yellow Jackets --> Won games with score difference of 5 or less: 11
+Name: Braves --> Won games with score difference of 5 or less: 1
+Name: Colonials --> Won games with score difference of 5 or less: 3
+Name: Mountain Hawks --> Won games with score difference of 5 or less: 1
+Name: Demon Deacons --> Won games with score difference of 5 or less: 7
+Name: Midshipmen --> Won games with score difference of 5 or less: 1
+Name: Orange --> Won games with score difference of 5 or less: 16
+Name: Green Wave --> Won games with score difference of 5 or less: 2
+Name: Rams --> Won games with score difference of 5 or less: 5
+Name: Hokies --> Won games with score difference of 5 or less: 1
+Name: Bison --> Won games with score difference of 5 or less: 3
+Name: Tar Heels --> Won games with score difference of 5 or less: 14
+Name: Cyclones --> Won games with score difference of 5 or less: 6
+Name: Catamounts --> Won games with score difference of 5 or less: 1
+Name: Hilltoppers --> Won games with score difference of 5 or less: 6
+Name: Lobos --> Won games with score difference of 5 or less: 3
+Name: Cardinal --> Won games with score difference of 5 or less: 5
+Name: Bobcats --> Won games with score difference of 5 or less: 1
+Name: RedHawks --> Won games with score difference of 5 or less: 1
+Name: Trojans --> Won games with score difference of 5 or less: 5
+Name: Hoosiers --> Won games with score difference of 5 or less: 8
+Name: Mountaineers --> Won games with score difference of 5 or less: 4
+Name: Golden Hurricane --> Won games with score difference of 5 or less: 2
+Name: Minutemen --> Won games with score difference of 5 or less: 2
+Name: Boilermakers --> Won games with score difference of 5 or less: 11
+Name: Redbirds --> Won games with score difference of 5 or less: 2
+Name: Hawkeyes --> Won games with score difference of 5 or less: 6
+Name: Shockers --> Won games with score difference of 5 or less: 2
+Name: Crusaders --> Won games with score difference of 5 or less: 2
+Name: Golden Bears --> Won games with score difference of 5 or less: 6
+Name: Hawks --> Won games with score difference of 5 or less: 6
+Name: Gators --> Won games with score difference of 5 or less: 6
+Name: Jaguars --> Won games with score difference of 5 or less: 1
+Name: Eagles --> Won games with score difference of 5 or less: 7
+Name: Razorbacks --> Won games with score difference of 5 or less: 8
+Name: Governors --> Won games with score difference of 5 or less: 1
+Name: Ducks --> Won games with score difference of 5 or less: 7
+Name: Red Storm --> Won games with score difference of 5 or less: 3
+Name: Vikings --> Won games with score difference of 5 or less: 1
+Name: Cardinals --> Won games with score difference of 5 or less: 13
+Name: Titans --> Won games with score difference of 5 or less: 2
+Name: Wolverines --> Won games with score difference of 5 or less: 21
+Name: Blazers --> Won games with score difference of 5 or less: 5
+Name: Buffaloes --> Won games with score difference of 5 or less: 1
+Name: Sun Devils --> Won games with score difference of 5 or less: 1
+Name: Toreros --> Won games with score difference of 5 or less: 1
+Name: Nittany Lions --> Won games with score difference of 5 or less: 1
+Name: Golden Flashes --> Won games with score difference of 5 or less: 2
+Name: Ramblers --> Won games with score difference of 5 or less: 1
+Name: Aces --> Won games with score difference of 5 or less: 1
+Name: Jayhawks --> Won games with score difference of 5 or less: 15
+Name: Cowboys --> Won games with score difference of 5 or less: 5
+Name: Sooners --> Won games with score difference of 5 or less: 6
+Name: Rebels --> Won games with score difference of 5 or less: 10
+Name: Crimson --> Won games with score difference of 5 or less: 1
+Name: Racers --> Won games with score difference of 5 or less: 2
+Name: Utes --> Won games with score difference of 5 or less: 5
+Name: Pirates --> Won games with score difference of 5 or less: 6
+Name: Terrapins --> Won games with score difference of 5 or less: 8
+Name: Aggies --> Won games with score difference of 5 or less: 5
+Name: Miners --> Won games with score difference of 5 or less: 2
+Name: Mocs --> Won games with score difference of 5 or less: 1
+Name: Badgers --> Won games with score difference of 5 or less: 11
+Name: Seminoles --> Won games with score difference of 5 or less: 3
+Name: Red Raiders --> Won games with score difference of 5 or less: 3
+Name: Musketeers --> Won games with score difference of 5 or less: 8
+Name: Huskies --> Won games with score difference of 5 or less: 16
+Name: Bluejays --> Won games with score difference of 5 or less: 4
+Name: Volunteers --> Won games with score difference of 5 or less: 6
+Name: Explorers --> Won games with score difference of 5 or less: 2
+Name: Aztecs --> Won games with score difference of 5 or less: 1
+Name: Crimson Tide --> Won games with score difference of 5 or less: 6
+Name: Longhorns --> Won games with score difference of 5 or less: 10
+Name: Billikens --> Won games with score difference of 5 or less: 3
+Name: Blue Devils --> Won games with score difference of 5 or less: 17
+Name: Wildcats --> Won games with score difference of 5 or less: 45
+Name: Salukis --> Won games with score difference of 5 or less: 1
+Name: Owls --> Won games with score difference of 5 or less: 3
+Name: Hurricanes --> Won games with score difference of 5 or less: 2
+Name: Flyers --> Won games with score difference of 5 or less: 4
+Name: Golden Gophers --> Won games with score difference of 5 or less: 2
+Name: Friars --> Won games with score difference of 5 or less: 2
+Name: Fighting Illini --> Won games with score difference of 5 or less: 4
+Name: Fighting Irish --> Won games with score difference of 5 or less: 7
+Name: Golden Eagles --> Won games with score difference of 5 or less: 6
+Name: Buckeyes --> Won games with score difference of 5 or less: 8
+Name: Spiders --> Won games with score difference of 5 or less: 5
+Name: Commodores --> Won games with score difference of 5 or less: 3
+Name: Sycamores --> Won games with score difference of 5 or less: 1
+Name: Gauchos --> Won games with score difference of 5 or less: 1
+Name: Monarchs --> Won games with score difference of 5 or less: 1
+Name: Ragin' Cajuns --> Won games with score difference of 5 or less: 1
+Name: Cavaliers --> Won games with score difference of 5 or less: 3
+Name: Demons --> Won games with score difference of 5 or less: 2
+Name: Blue Demons --> Won games with score difference of 5 or less: 3
+Name: Bears --> Won games with score difference of 5 or less: 3
+Name: Hoyas --> Won games with score difference of 5 or less: 8
+Name: Bruins --> Won games with score difference of 5 or less: 14
+Name: Lions --> Won games with score difference of 5 or less: 2
+Name: Bulldogs --> Won games with score difference of 5 or less: 18
+Name: Phoenix --> Won games with score difference of 5 or less: 1
+Name: Wolf Pack --> Won games with score difference of 5 or less: 1
+Name: Privateers --> Won games with score difference of 5 or less: 1
+Name: Spartans --> Won games with score difference of 5 or less: 14
+Name: Broncos --> Won games with score difference of 5 or less: 2
+Name: Bearcats --> Won games with score difference of 5 or less: 5
+Name: Patriots --> Won games with score difference of 5 or less: 3
+Name: Seahawks --> Won games with score difference of 5 or less: 1
+Name: Panthers --> Won games with score difference of 5 or less: 9
+Name: Saints --> Won games with score difference of 5 or less: 3
+Name: Tigers --> Won games with score difference of 5 or less: 30
+Name: Wolfpack --> Won games with score difference of 5 or less: 6

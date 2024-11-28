@@ -1,3 +1,5 @@
+package Common
+
 import scala.collection.mutable.Map as MutMap
 
 
@@ -16,6 +18,7 @@ class MultiCounter(val map: MutMap[String, Int], val printFunc: MutMap[String, I
 
   override def toString: String = printFunc(this.map)
 
-class SingleCounter(val name: String, val counter: Int):
+class SingleCounter(val name: String, val counter: Int = 1):
   def +(that: SingleCounter): SingleCounter = SingleCounter(that.name, this.counter + that.counter)
   override def toString: String = s"$name - $counter"
+
