@@ -12,6 +12,10 @@ import scala.collection.mutable.Map as MutMap
 
 
 object Question2:
+
+  /**
+   * The FlowGraph that takes a stream of Match objects (Flow[Match]) and returns a flow of ByteStrings (the output to be written to the results file
+   */
   val flowGraph: Graph[FlowShape[Match, ByteString], NotUsed] =
     Flow.fromGraph(
       GraphDSL.create() {
@@ -43,8 +47,14 @@ object Question2:
 
           FlowShape(filterPointDifference.in, flowOut.out)})
 
+  /**
+   * The sink to be used to write out the output of the flowGraph to the right file
+   */
   val sink = FileIO.toPath(Paths.get(Constants.pathQ2), Set(CREATE, WRITE, TRUNCATE_EXISTING))
 
+  /**
+   * The function to be given to MultiCounter to format the output 
+   */
   def printFunc(map: MutMap[String, Int]): String =
     var str: String = ""
     map.foreach((team, count) => str += s"Name: $team --> Won games with score difference of 5 or less: $count\n")

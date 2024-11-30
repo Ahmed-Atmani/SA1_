@@ -2,6 +2,9 @@ package Common
 
 import java.nio.file.{Path, Paths}
 
+/**
+ * Object that contains all constants used in the project
+ */
 object Constants:
   val maxSubStreams: Int = 1000
   

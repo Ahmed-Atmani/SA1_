@@ -7,6 +7,10 @@ import akka.stream.{FlowShape, Graph, OverflowStrategy}
 import akka.util.ByteString
 
 
+/**
+ * Object that contains `byteStringToMatchFlow`, which is a FlowGraph that converts file data to Match objects.
+ * This is based on the code from WPO6
+ */
 object FileDataToMatch:
 
   val byteStringToMatchFlow: Graph[FlowShape[ByteString, Match], NotUsed] =

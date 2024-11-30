@@ -12,6 +12,10 @@ import scala.collection.mutable.Map as MutMap
 
 
 object Question3:
+
+  /**
+   * The FlowGraph that takes a stream of Match objects (Flow[Match]) and returns a flow of ByteStrings (the output to be written to the results file
+   */
   val flowGraph: Graph[FlowShape[Match, ByteString], NotUsed] =
     Flow.fromGraph(
       GraphDSL.create() {
@@ -23,7 +27,7 @@ object Question3:
           val buffer = Flow[Match].buffer(Constants.bufferSize, OverflowStrategy.backpressure)
           val flowOut = builder.add(Flow[ByteString])
 
-          val filterNonQuarterFinals = builder.add(Flow[Match].filter((m: Match) => m.round <= 4))
+          val filterQuarterFinals = builder.add(Flow[Match].filter((m: Match) => m.round <= 4))
 
           val finalsCounter: Flow[Match, MultiCounter, NotUsed] = Flow[Match]
             .groupBy(Constants.maxSubStreams, (m: Match) => m.win_team.name)
@@ -38,13 +42,19 @@ object Question3:
           val toByteString = Flow[MultiCounter].map(w => ByteString(w.toString))
 
           // First filter out matches not on Sunday, so that the two pipelines gets a more equal amount of work after filtering
-          filterNonQuarterFinals ~> balance ~> buffer ~> finalsCounter.async ~> merge ~> finalsCountMerger ~> toByteString ~> flowOut
-                                    balance ~> buffer ~> finalsCounter.async ~> merge
+          filterQuarterFinals ~> balance ~> buffer ~> finalsCounter.async ~> merge ~> finalsCountMerger ~> toByteString ~> flowOut
+                                 balance ~> buffer ~> finalsCounter.async ~> merge
 
-          FlowShape(filterNonQuarterFinals.in, flowOut.out)})
+          FlowShape(filterQuarterFinals.in, flowOut.out)})
 
+  /**
+   * The sink to be used to write out the output of the flowGraph to the right file
+   */
   val sink = FileIO.toPath(Paths.get(Constants.pathQ3), Set(CREATE, WRITE, TRUNCATE_EXISTING))
 
+  /**
+   * The function to be given to MultiCounter to format the output 
+   */
   def printFunc(map: MutMap[String, Int]): String =
     var str: String = ""
     map.foreach((team, count) => str += s"Name: $team --> Amount of participated games at least in quarter-finals: $count\n")

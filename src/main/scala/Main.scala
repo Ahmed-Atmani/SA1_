@@ -10,6 +10,9 @@ import akka.util.ByteString
 import scala.concurrent.{ExecutionContextExecutor, Future}
 
 
+/**
+ * Runs all four FlowGraphs to the appropriate sinks
+ */
 object Main extends App:
 
   implicit val actorSystem: ActorSystem = ActorSystem("Main")
